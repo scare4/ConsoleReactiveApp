@@ -13,7 +13,7 @@ namespace ReactiveApp1
         /// <summary>
         /// UI template
         /// </summary>
-        private string UI = "####################################################################################################\n" +
+        private string UI = "####################################################################################################\n" + 
             "                                                                                                    \n" +
             "                                                                                                    \n" +
             "                                                                                                    \n" +
@@ -74,7 +74,7 @@ namespace ReactiveApp1
         {
             foreach (Obstacle Obs in Data.Obstacles)
             {
-                if (Obs.RelativeXPos < 100)
+                if (Obs.RelativeXPos < 100) //don't display outside the window
                 {
                     Console.SetCursorPosition(Obs.RelativeXPos, 7);
                     Console.Write(Obs.Sprite);
@@ -101,18 +101,18 @@ namespace ReactiveApp1
         public void WriteScore()
         {
             List<UInt64> ScoreList;
-            if (File.Exists("score.xml"))
+            if (File.Exists("score.xml")) //check if file exists before trying to read
             {
                 ScoreList = ListIO.ReadList<UInt64>("score.xml");
                 ScoreList.Add(Data.Score);
                 ScoreList.Sort();
                 ScoreList.Reverse();
-                if (ScoreList.Count > 5)
+                if (ScoreList.Count > 5) //remove the excess scores
                 {
                     ScoreList.RemoveAt(5);
                 }
             }
-            else
+            else //generate new file if it deos not exists
             {
                 ScoreList = new List<UInt64>
                 {
@@ -120,7 +120,7 @@ namespace ReactiveApp1
                 };
             }
             byte Line = 3;
-            foreach (UInt64 CurrScore in ScoreList)
+            foreach (UInt64 CurrScore in ScoreList) //write scores
             {
                 Console.SetCursorPosition(56, Line);
                 Console.Write(CurrScore.ToString());

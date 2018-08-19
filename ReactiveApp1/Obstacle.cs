@@ -33,7 +33,7 @@
         /// </summary>
         public void ProcessObstacle()
         {
-            if (RelativeXPos > 0)
+            if (RelativeXPos > 0) //delete the obstacle when it reached the very left of the screen
             {
                 RelativeXPos -= 1;
             }

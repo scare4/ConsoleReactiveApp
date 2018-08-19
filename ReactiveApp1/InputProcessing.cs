@@ -15,7 +15,7 @@ namespace ReactiveApp1
         {
             while (Data.CurrentInput != "esc")
             {
-                if (Console.KeyAvailable)
+                if (Console.KeyAvailable) //only check input if there is input to be read
                 {
                     Data.CurrentInput = GetInputKey();
                 }
@@ -29,7 +29,7 @@ namespace ReactiveApp1
         /// <returns>Returns a string that will be stored in Data and be directly usable by other classes</returns>
         static string GetInputKey()
         {
-            if (Data.CurrentInput == "none")
+            if (Data.CurrentInput == "none") //avoid changing current input before the previous one has been read
             {
                 if (Console.ReadKey(true).Key == ConsoleKey.UpArrow)
                 {
