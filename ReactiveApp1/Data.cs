@@ -36,7 +36,7 @@ namespace ReactiveApp1
         /// <summary>
         /// Sets Data's values to their defaults
         /// </summary>
-        public static void InitData()
+        public static void InitData() //defaults are defined here for enhanced customizability
         {
             CurrentInput = "none";
             Score = 0;
